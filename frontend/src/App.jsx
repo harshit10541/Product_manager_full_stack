@@ -1,16 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { Button } from "./components/ui/button"
+import { Box } from "@chakra-ui/react"
+import { Route, Routes } from "react-router-dom"
+import CreatePage from "./pages/CreatePage"
+import HomePage from "./pages/HomePage.jsx"
+// import HomePage
+import { Navbar } from "./components/Navbar"
+// import { useProductStore } from "../store/product"
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  // const {products} = useProductStore()
   return (
-    <>
-      <Button>Click Me</Button>
-    </>
-  )
+    <Box minH={"100vh"}>
+      <Navbar />
+      <Routes>
+        <Route path = "/" element = {<HomePage />} />
+        <Route path = "/create" element = {<CreatePage />} />
+      </Routes>
+    </Box>
+  );
 }
 
-export default App
+export default App;
